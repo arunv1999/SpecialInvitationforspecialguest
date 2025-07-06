@@ -11,6 +11,36 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&family=Playfair+Display:wght@400;700&display=swap');
 
+        /* Font utility classes */
+        .playfair-font {
+            font-family: 'Playfair Display', serif !important;
+        }
+        .dancing-font {
+            font-family: 'Dancing Script', cursive !important;
+        }
+
+        /* Animation delay utility classes for .letter-animation */
+        .delay-0 { animation-delay: 0s !important; }
+        .delay-1 { animation-delay: 0.1s !important; }
+        .delay-2 { animation-delay: 0.2s !important; }
+        .delay-3 { animation-delay: 0.3s !important; }
+        .delay-4 { animation-delay: 0.4s !important; }
+        .delay-5 { animation-delay: 0.5s !important; }
+        .delay-6 { animation-delay: 0.6s !important; }
+        .delay-7 { animation-delay: 0.7s !important; }
+        .delay-8 { animation-delay: 0.8s !important; }
+        .delay-9 { animation-delay: 0.9s !important; }
+        .delay-10 { animation-delay: 1s !important; }
+        .delay-20 { animation-delay: 2s !important; }
+
+        /* Three.js canvas styling */
+        .threejs-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -87,6 +117,7 @@
         /* Glassmorphism */
         .glass {
             background: rgba(255, 255, 255, 0.1);
+            -webkit-backdrop-filter: blur(20px);
             backdrop-filter: blur(20px);
             border: 1px solid rgba(255, 255, 255, 0.2);
             box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
@@ -94,6 +125,7 @@
 
         .glass-dark {
             background: rgba(0, 0, 0, 0.1);
+            -webkit-backdrop-filter: blur(20px);
             backdrop-filter: blur(20px);
             border: 1px solid rgba(255, 255, 255, 0.1);
             box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
@@ -237,6 +269,7 @@
             align-items: center;
             justify-content: center;
             font-size: 40px;
+            -webkit-backdrop-filter: blur(10px);
             backdrop-filter: blur(10px);
         }
 
@@ -369,44 +402,20 @@
             }
         }
 
-        /* Parallax Scroll */
-        .parallax-container {
-            height: 100vh;
-            overflow-x: hidden;
-            overflow-y: auto;
-            perspective: 1px;
-        }
+    /* Parallax Scroll */
+    .parallax-container {
+        height: 100vh;
+        overflow-x: hidden;
+        overflow-y: auto;
+        perspective: 1px;
+    }
 
         .parallax-element {
             position: absolute;
             top: 0;
-            right: 0;
-            bottom: 0;
-            left: 0;
-        }
-
-        .parallax-back {
-            transform: translateZ(-1px) scale(2);
-        }
-
-        .parallax-base {
-            transform: translateZ(0);
         }
     </style>
-</head>
-<body>
-    <!-- Custom Cursor -->
-    <div class="cursor"></div>
-    <div class="cursor-follower"></div>
-
-    <!-- Magic Background -->
-    <div class="magic-bg">
-        <div class="kolam-pattern"></div>
-    </div>
-
-    <!-- Three.js Canvas -->
-    <canvas id="threejs-canvas" style="position: fixed; top: 0; left: 0; z-index: -1;"></canvas>
-
+    
     <!-- Hero Section -->
     <section class="min-h-screen flex items-center justify-center relative overflow-hidden">
         <div class="text-center z-10 px-4">
@@ -578,8 +587,6 @@
     <button id="scrollTopBtn" class="hidden fixed bottom-6 left-6 glass text-white p-3 rounded-full shadow-lg hover:bg-white hover:bg-opacity-20 z-50">
         <i class="fas fa-arrow-up"></i>
     </button>
-
-    <!-- Footer -->
     <footer class="py-12 px-4 text-center">
         <div class="glass rounded-2xl p-8 max-w-2xl mx-auto">
             <p class="text-white opacity-80 text-lg">
@@ -590,6 +597,12 @@
             </p>
         </div>
     </footer>
+
+    <!-- Custom Cursor Elements -->
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+    <!-- Three.js Canvas -->
+    <canvas id="threejs-canvas" class="threejs-canvas"></canvas>
 
     <script>
         // Cursor Movement
@@ -734,27 +747,7 @@
 
         // WhatsApp Button
         document.getElementById('whatsapp-btn').addEventListener('click', function() {
-            const message = encodeURIComponent(`YES! 💕 Application for a Lifetime Role - No Resume, Just a Yes ❤️
-
-Hi Arun,
-
-This isn't your average "hello." This is a real, slightly dramatic, totally heartfelt application to be your partner — in life, love, laughter, and late-night snacks.
-
-Between sleepy mornings and hopeful dreams, I realized I don't want to be just a chapter in your story — I want to co-author the whole book with you.
-
-Life so far? Pretty great. Life with you? I imagine magic — shared glances, comforting hugs, spontaneous laughter, and all the love in between.
-
-So here's my ask: Let's make a team. A really good one. One that can handle plot twists, laugh through montages, and celebrate every small joy together.
-
-Perks of Saying Yes:
-• Unlimited emotional tech support (plus snacks!)
-• Daily reminders of how wonderful you are
-• Spotify duets and blanket forts
-• One loyal heart, yours forever
-
-Will you be my calm, my chaos, my forever? Let's make this the beginning of something beautiful.
-
-YES! 💕`);
+            const message = encodeURIComponent(`Please accept my proposal! I can't wait to spend the rest of my life with you. ❤️`);
 
             window.open(`https://wa.me/917639971082?text=${message}`, '_blank');
             
@@ -876,5 +869,7 @@ YES! 💕`);
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
     </script>
+</body>
+</html>cript>
 </body>
 </html>
